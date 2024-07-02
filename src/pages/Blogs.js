@@ -6,7 +6,7 @@ const Blogs = () => {
   //function to get all blogs
   const getAllBlogs = async () => {
     try {           //try catch block to handle response and error
-      const { data } = await axios.get("/api/v1/blog/all-blog"); //get all blogs from that api by axios get request and destructure that data
+      const { data } = await axios.get(`${process.env.URL}/api/v1/blog/all-blog`); //get all blogs from that api by axios get request and destructure that data
       if (data?.success) { //conditionally check if we get the data it is success and we get blogs
         setBlogs(data?.blogs); //then we will set the data using setblogs since initially ke kept array empty now it will be filled
       }//in blogcontroller in get all blogs we have passed blogs at the end that willbe recieved here

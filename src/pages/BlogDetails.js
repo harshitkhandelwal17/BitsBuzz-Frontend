@@ -11,7 +11,7 @@ const BlogDetails = () => {
   // function to get blog details
   const getBlogDetail = async () => {
     try {
-      const { data } = await axios.get(`/api/v1/blog/get-blog/${id}`); //get that blog details from backend using axios get on basis of blog id and after getting it destructure its data 
+      const { data } = await axios.get(`${process.env.URL}/api/v1/blog/get-blog/${id}`); //get that blog details from backend using axios get on basis of blog id and after getting it destructure its data 
       if (data?.success) {
         setBlog(data?.blog); //data mila toh blog lenge aur set karwadenge naye state mai
         setInputs({ //it comes from data we are recieving from above, apply optional chaining here if data aane mai time laga toh application will crash
@@ -40,7 +40,7 @@ const BlogDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.put(`/api/v1/blog/update-blog/${id}`, { //put method for update, id of blog passed
+      const { data } = await axios.put(`${process.env.URL}/api/v1/blog/update-blog/${id}`, { //put method for update, id of blog passed
         title: inputs.title,
         description: inputs.description,
         image: inputs.image,

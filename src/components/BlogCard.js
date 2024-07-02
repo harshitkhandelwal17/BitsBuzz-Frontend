@@ -29,7 +29,7 @@ export default function BlogCard({ //destructuring data of a blog so that we can
 
   const handleDelete = async () => { //delete blog function implemented at front end
     try {
-      const { data } = await axios.delete(`/api/v1/blog/delete-blog/${id}`); //delete this blog on the basis of id
+      const { data } = await axios.delete(`${process.env.URL}/api/v1/blog/delete-blog/${id}`); //delete this blog on the basis of id
       if (data?.success) { //if this sis success alert shown blog deleted
         toast.success("Buzz Deleted"); //toast notification
         window.location.reload(); //to refresh browser automatically so that we dont have to refresh after deletion

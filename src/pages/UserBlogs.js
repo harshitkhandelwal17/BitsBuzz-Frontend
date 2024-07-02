@@ -8,7 +8,7 @@ const UserBlogs = () => {
   const getUserBlogs = async () => {
     try {
       const id = localStorage.getItem("userId"); //either destructure id or store it in a variable since it will be dynamic, we will get id from localstorage since we are saving it there at time of login
-      const { data } = await axios.get(`/api/v1/blog/user-blog/${id}`); //destructuring of data recieved from axios get request send to fetch blogs of that user on the api or network which we created in backend
+      const { data } = await axios.get(`${process.env.URL}/api/v1/blog/user-blog/${id}`); //destructuring of data recieved from axios get request send to fetch blogs of that user on the api or network which we created in backend
       if (data?.success) { //if data is found then
         setBlogs(data?.userBlog.blogs); //set blogs with data in data there is userBlog from blog controller function to get user blogs, so set blogs as that data, we will get blog from userBlogs
       }

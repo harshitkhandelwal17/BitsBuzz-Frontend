@@ -24,7 +24,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); //to prevent default behaviour of page refresh on form submission
     try {//to bind data recieved from user with our api, we will send network request using axios
-      const { data } = await axios.post("/api/v1/user/register", {
+      const { data } = await axios.post(`${process.env.URL}/api/v1/user/register`, {
         username: inputs.name,
         email: inputs.email, //pass input data to these parameters(model) and post it on server using axios
         password: inputs.password,

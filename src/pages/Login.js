@@ -27,7 +27,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/user/login", { //end point of api will be login
+      const { data } = await axios.post(`${process.env.URL}/api/v1/user/login`, { //end point of api will be login
         email: inputs.email,
         password: inputs.password,
       });

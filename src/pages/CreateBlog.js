@@ -22,7 +22,7 @@ const CreateBlog = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); //prevent the default behaviour of submit using event
     try {
-      const { data } = await axios.post("/api/v1/blog/create-blog", { //destructure data and we are sending data using axios post to server of create-blog or at that url
+      const { data } = await axios.post(`${process.env.URL}/api/v1/blog/create-blog`, { //destructure data and we are sending data using axios post to server of create-blog or at that url
         title: inputs.title, //all data and from where it comes written here so that we can send it to backend
         description: inputs.description, //data that we need to send using axios post
         image: inputs.image, //these 3 fields will come from inputs of form, input is a state we are getting data from it
